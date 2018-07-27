@@ -77,6 +77,21 @@ ifeq (yes,$(strip $(SLEEP_LED_ENABLE)))
     OPT_DEFS += -DNO_SUSPEND_POWER_DOWN
 endif
 
+ifeq (yes,$(strip $(SOFTPWM_LED_ENABLE)))
+    SRC += $(COMMON_DIR)/avr/softpwm_led.c
+    OPT_DEFS += -DSOFTPWM_LED_ENABLE
+ifeq (yes,$(strip $(FADING_LED_ENABLE)))
+    OPT_DEFS += -DFADING_LED_ENABLE
+endif
+ifeq (yes,$(strip $(BREATHING_LED_ENABLE)))
+    OPT_DEFS += -DBREATHING_LED_ENABLE
+endif
+else
+ifeq (yes,$(strip $(BREATHING_LED_ENABLE)))
+    SRC += $(COMMON_DIR)/breathing_led.c
+    OPT_DEFS += -DBREATHING_LED_ENABLE
+endif
+endif
 ifeq (yes,$(strip $(BACKLIGHT_ENABLE)))
     SRC += $(COMMON_DIR)/backlight.c
     OPT_DEFS += -DBACKLIGHT_ENABLE

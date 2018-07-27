@@ -288,4 +288,195 @@ enum unimap_position_codes {
 #define UNIMAP_VOLU UNIMAP_VOLUME_UP
 #define UNIMAP_VOLD UNIMAP_VOLUME_DOWN
 
+
+
+/*more shrot*/
+#define UM_KANA UNIMAP_KANA            // 0x00
+#define UM_VOLUME_DOWN UNIMAP_VOLUME_DOWN     // 0x01
+#define UM_VOLUME_UP UNIMAP_VOLUME_UP       // 0x02
+#define UM_VOLUME_MUTE UNIMAP_VOLUME_MUTE     // 0x03
+#define UM_A UNIMAP_A               // 0x04
+#define UM_B UNIMAP_B               // 0x05
+#define UM_C UNIMAP_C               // 0x06
+#define UM_D UNIMAP_D               // 0x07
+#define UM_E UNIMAP_E               // 0x08
+#define UM_F UNIMAP_F               // 0x09
+#define UM_G UNIMAP_G               // 0x0A
+#define UM_H UNIMAP_H               // 0x0B
+#define UM_I UNIMAP_I               // 0x0C
+#define UM_J UNIMAP_J               // 0x0D
+#define UM_K UNIMAP_K               // 0x0E
+#define UM_L UNIMAP_L               // 0x0F
+#define UM_M UNIMAP_M               // 0x10
+#define UM_N UNIMAP_N               // 0x11
+#define UM_O UNIMAP_O               // 0x12
+#define UM_P UNIMAP_P               // 0x13
+#define UM_Q UNIMAP_Q               // 0x14
+#define UM_R UNIMAP_R               // 0x15
+#define UM_S UNIMAP_S               // 0x16
+#define UM_T UNIMAP_T               // 0x17
+#define UM_U UNIMAP_U               // 0x18
+#define UM_V UNIMAP_V               // 0x19
+#define UM_W UNIMAP_W               // 0x1A
+#define UM_X UNIMAP_X               // 0x1B
+#define UM_Y UNIMAP_Y               // 0x1C
+#define UM_Z UNIMAP_Z               // 0x1D
+#define UM_1 UNIMAP_1               // 0x1E
+#define UM_2 UNIMAP_2               // 0x1F
+#define UM_3 UNIMAP_3               // 0x20
+#define UM_4 UNIMAP_4               // 0x21
+#define UM_5 UNIMAP_5               // 0x22
+#define UM_6 UNIMAP_6               // 0x23
+#define UM_7 UNIMAP_7               // 0x24
+#define UM_8 UNIMAP_8               // 0x25
+#define UM_9 UNIMAP_9               // 0x26
+#define UM_0 UNIMAP_0               // 0x27
+#define UM_ENTER UNIMAP_ENTER           // 0x28
+#define UM_ESCAPE UNIMAP_ESCAPE          // 0x29
+#define UM_BSPACE UNIMAP_BSPACE          // 0x2A
+#define UM_TAB UNIMAP_TAB             // 0x2B
+#define UM_SPACE UNIMAP_SPACE           // 0x2C
+#define UM_MINUS UNIMAP_MINUS           // 0x2D
+#define UM_EQUAL UNIMAP_EQUAL           // 0x2E
+#define UM_LBRACKET UNIMAP_LBRACKET        // 0x2F
+#define UM_RBRACKET UNIMAP_RBRACKET        // 0x30
+#define UM_BSLASH UNIMAP_BSLASH          // 0x31
+#define UM_NONUS_HASH UNIMAP_NONUS_HASH      // 0x32 ISO UK hasu
+#define UM_SCOLON UNIMAP_SCOLON          // 0x33
+#define UM_QUOTE UNIMAP_QUOTE           // 0x34
+#define UM_GRAVE UNIMAP_GRAVE           // 0x35
+#define UM_COMMA UNIMAP_COMMA           // 0x36
+#define UM_DOT UNIMAP_DOT             // 0x37
+#define UM_SLASH UNIMAP_SLASH           // 0x38
+#define UM_CAPSLOCK UNIMAP_CAPSLOCK        // 0x39
+#define UM_F1 UNIMAP_F1              // 0x3A
+#define UM_F2 UNIMAP_F2              // 0x3B
+#define UM_F3 UNIMAP_F3              // 0x3C
+#define UM_F4 UNIMAP_F4              // 0x3D
+#define UM_F5 UNIMAP_F5              // 0x3E
+#define UM_F6 UNIMAP_F6              // 0x3F
+#define UM_F7 UNIMAP_F7              // 0x40
+#define UM_F8 UNIMAP_F8              // 0x41
+#define UM_F9 UNIMAP_F9              // 0x42
+#define UM_F10 UNIMAP_F10             // 0x43
+#define UM_F11 UNIMAP_F11             // 0x44
+#define UM_F12 UNIMAP_F12             // 0x45
+#define UM_PSCREEN UNIMAP_PSCREEN         // 0x46
+#define UM_SCROLLLOCK UNIMAP_SCROLLLOCK      // 0x47
+#define UM_PAUSE UNIMAP_PAUSE           // 0x48
+#define UM_INSERT UNIMAP_INSERT          // 0x49
+#define UM_HOME UNIMAP_HOME            // 0x4A
+#define UM_PGUP UNIMAP_PGUP            // 0x4B
+#define UM_DELETE UNIMAP_DELETE          // 0x4C
+#define UM_END UNIMAP_END             // 0x4D
+#define UM_PGDOWN UNIMAP_PGDOWN          // 0x4E
+#define UM_RIGHT UNIMAP_RIGHT           // 0x4F
+#define UM_LEFT UNIMAP_LEFT            // 0x50
+#define UM_DOWN UNIMAP_DOWN            // 0x51
+#define UM_UP UNIMAP_UP              // 0x52
+#define UM_NUMLOCK UNIMAP_NUMLOCK         // 0x53
+#define UM_KP_SLASH UNIMAP_KP_SLASH        // 0x54
+#define UM_KP_ASTERISK UNIMAP_KP_ASTERISK     // 0x55
+#define UM_KP_MINUS UNIMAP_KP_MINUS        // 0x56
+#define UM_KP_PLUS UNIMAP_KP_PLUS         // 0x57
+#define UM_KP_ENTER UNIMAP_KP_ENTER        // 0x58
+#define UM_KP_1 UNIMAP_KP_1            // 0x59
+#define UM_KP_2 UNIMAP_KP_2            // 0x5A
+#define UM_KP_3 UNIMAP_KP_3            // 0x5B
+#define UM_KP_4 UNIMAP_KP_4            // 0x5C
+#define UM_KP_5 UNIMAP_KP_5            // 0x5D
+#define UM_KP_6 UNIMAP_KP_6            // 0x5E
+#define UM_KP_7 UNIMAP_KP_7            // 0x5F
+#define UM_KP_8 UNIMAP_KP_8            // 0x60
+#define UM_KP_9 UNIMAP_KP_9            // 0x61
+#define UM_KP_0 UNIMAP_KP_0            // 0x62
+#define UM_KP_DOT UNIMAP_KP_DOT          // 0x63
+#define UM_NONUS_BSLASH UNIMAP_NONUS_BSLASH    // 0x64 ISO UK backslash
+#define UM_APPLICATION UNIMAP_APPLICATION     // 0x65
+#define UM_KP_COMMA UNIMAP_KP_COMMA        // 0x66
+#define UM_KP_EQUAL UNIMAP_KP_EQUAL        // 0x67
+#define UM_F13 UNIMAP_F13             // 0x68
+#define UM_F14 UNIMAP_F14             // 0x69
+#define UM_F15 UNIMAP_F15             // 0x6A
+#define UM_F16 UNIMAP_F16             // 0x6B
+#define UM_F17 UNIMAP_F17             // 0x6C
+#define UM_F18 UNIMAP_F18             // 0x6D
+#define UM_F19 UNIMAP_F19             // 0x6E
+#define UM_F20 UNIMAP_F20             // 0x6F
+#define UM_F21 UNIMAP_F21             // 0x70
+#define UM_F22 UNIMAP_F22             // 0x71
+#define UM_F23 UNIMAP_F23             // 0x72
+#define UM_F24 UNIMAP_F24             // 0x73
+#define UM_JYEN UNIMAP_JYEN            // 0x74
+#define UM_RO UNIMAP_RO              // 0x75
+#define UM_HENK UNIMAP_HENK            // 0x76
+#define UM_MHEN UNIMAP_MHEN            // 0x77
+#define UM_LCTRL UNIMAP_LCTRL           // 0x78
+#define UM_LSHIFT UNIMAP_LSHIFT          // 0x79
+#define UM_LALT UNIMAP_LALT            // 0x7A
+#define UM_LGUI UNIMAP_LGUI            // 0x7B
+#define UM_RCTRL UNIMAP_RCTRL           // 0x7C
+#define UM_RSHIFT UNIMAP_RSHIFT          // 0x7D
+#define UM_RALT UNIMAP_RALT            // 0x7E
+#define UM_RGUI UNIMAP_RGUI            // 0x7F
+#define UM_NO UNIMAP_NO              // 0x80
+/*short*/
+#define UM_LCTL UNIMAP_LCTRL
+#define UM_RCTL UNIMAP_RCTRL
+#define UM_LSFT UNIMAP_LSHIFT
+#define UM_RSFT UNIMAP_RSHIFT
+#define UM_ESC  UNIMAP_ESCAPE
+#define UM_BSPC UNIMAP_BSPACE
+#define UM_ENT  UNIMAP_ENTER
+#define UM_DEL  UNIMAP_DELETE
+#define UM_INS  UNIMAP_INSERT
+#define UM_CAPS UNIMAP_CAPSLOCK
+#define UM_CLCK UNIMAP_CAPSLOCK
+#define UM_RGHT UNIMAP_RIGHT
+#define UM_PGDN UNIMAP_PGDOWN
+#define UM_PSCR UNIMAP_PSCREEN
+#define UM_SLCK UNIMAP_SCROLLLOCK
+#define UM_PAUS UNIMAP_PAUSE
+#define UM_BRK  UNIMAP_PAUSE
+#define UM_NLCK UNIMAP_NUMLOCK
+#define UM_SPC  UNIMAP_SPACE
+#define UM_MINS UNIMAP_MINUS
+#define UM_EQL  UNIMAP_EQUAL
+#define UM_GRV  UNIMAP_GRAVE
+#define UM_RBRC UNIMAP_RBRACKET
+#define UM_LBRC UNIMAP_LBRACKET
+#define UM_COMM UNIMAP_COMMA
+#define UM_BSLS UNIMAP_BSLASH
+#define UM_SLSH UNIMAP_SLASH
+#define UM_SCLN UNIMAP_SCOLON
+#define UM_QUOT UNIMAP_QUOTE
+#define UM_APP  UNIMAP_APPLICATION
+#define UM_NUHS UNIMAP_NONUS_HASH
+#define UM_NUBS UNIMAP_NONUS_BSLASH
+/* Japanese specific */
+#define UM_ZKHK UNIMAP_GRAVE
+/* Keypad */
+#define UM_P1   UNIMAP_KP_1
+#define UM_P2   UNIMAP_KP_2
+#define UM_P3   UNIMAP_KP_3
+#define UM_P4   UNIMAP_KP_4
+#define UM_P5   UNIMAP_KP_5
+#define UM_P6   UNIMAP_KP_6
+#define UM_P7   UNIMAP_KP_7
+#define UM_P8   UNIMAP_KP_8
+#define UM_P9   UNIMAP_KP_9
+#define UM_P0   UNIMAP_KP_0
+#define UM_PDOT UNIMAP_KP_DOT
+#define UM_PCMM UNIMAP_KP_COMMA
+#define UM_PSLS UNIMAP_KP_SLASH
+#define UM_PAST UNIMAP_KP_ASTERISK
+#define UM_PMNS UNIMAP_KP_MINUS
+#define UM_PPLS UNIMAP_KP_PLUS
+#define UM_PEQL UNIMAP_KP_EQUAL
+#define UM_PENT UNIMAP_KP_ENTER
+/* Consumer Page */
+#define UM_MUTE UNIMAP_VOLUME_MUTE
+#define UM_VOLU UNIMAP_VOLUME_UP
+#define UM_VOLD UNIMAP_VOLUME_DOWN
+
 #endif
