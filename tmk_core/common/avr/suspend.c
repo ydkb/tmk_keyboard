@@ -72,6 +72,15 @@ static void power_down(uint8_t wdto)
     // - prescale clock
     // - BOD disable
     // - Power Reduction Register PRR
+
+#ifdef SUSPEND_ACTION
+    suspend_power_down_action();
+#endif
+
+#ifdef SOFTPWM_LED_ENABLE
+    softpwm_disable();
+#endif
+
     set_sleep_mode(SLEEP_MODE_PWR_DOWN);
     sleep_enable();
     sei();
@@ -105,7 +114,11 @@ bool suspend_wakeup_condition(void)
 void suspend_wakeup_init(void)
 {
     // clear keyboard state
-    clear_keyboard();
+    /* If clear_keyboard(), the first key pressed when waking up may be missed.*/
+    //clear_keyboard();
+#ifdef SUSPEND_ACTION
+    suspend_wakeup_init_action();
+#endif
 #ifdef BACKLIGHT_ENABLE
     backlight_init();
 #endif
@@ -123,5 +136,17 @@ ISR(WDT_vect)
         default:
             ;
     }
+}
+#endif
+
+#ifdef SUSPEND_ACTION
+__attribute__ ((weak))
+void suspend_power_down_action(void)
+{
+}
+
+__attribute__ ((weak))
+void suspend_wakeup_init_action(void)
+{
 }
 #endif
