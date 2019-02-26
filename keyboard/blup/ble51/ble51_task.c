@@ -21,9 +21,8 @@ uint32_t kb_idle_timer = 0;
 static bool usb_nkro_status = false;
 static bool usb_connected = false;
 
-bool dozing = false;
-bool sleeping = false;
-bool no_sleep = false;
+
+uint8_t BLE51_PowerState = 1;  
 
 void ble51_task_init(void)
 {
@@ -34,13 +33,14 @@ void ble51_task(void)
 {
     if (BT_POWERED) {
         if (USB_DeviceState != DEVICE_STATE_Configured) {
-            if (!no_sleep && (!dozing && (timer_elapsed32(kb_idle_timer) > 15000))) {
+            if (BLE51_PowerState == 1 && (timer_elapsed32(kb_idle_timer) > 15000)) {
                 print("dozing\n");
-                dozing = 1;
+                BLE51_PowerState = 3;
             }
-            if (dozing && (timer_elapsed32(kb_idle_timer) > 3600000)) {
-                print("BT is idle for 1 hour. Turn off. \n");
-                sleeping = 1;
+
+            if (BLE51_PowerState == 3 && (timer_elapsed32(kb_idle_timer) > 9000000)) {
+                print("BT is idle for a long time. Turn off. \n");
+                BLE51_PowerState = 4;
                 turn_off_bt();
             }
         }

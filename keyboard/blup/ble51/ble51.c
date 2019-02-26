@@ -21,8 +21,6 @@ host_driver_t ble51_driver = {
     send_system,
     send_consumer
 };
-bool report_error = false;
-bool is_sending = false;
 
 char ble51_buf[30];
 
@@ -110,8 +108,7 @@ static void send_mouse(report_mouse_t *report)
     ble51_puts("AT+BLEHIDMOUSEBUTTON=");
     sprintf(ble51_buf, "%d\n", report->buttons);
     ble51_puts(ble51_buf);
-    const char *result2 = ble51_gets(TIMEOUT);
-    if (memcmp(result2, "ERROR", 5) == 0) {
+    if (memcmp(ble51_gets(TIMEOUT), "ERROR", 5) == 0) {
         dprint("error\n");
     } 
 }

@@ -15,8 +15,6 @@
 #include "timer.h"
 #include "suspend.h"
 
-extern bool dozing;
-extern bool sleeping;
 extern bool force_usb;
 extern uint32_t kb_idle_timer; 
 bool kb_started = 0;
@@ -78,7 +76,7 @@ int main(void)
     kb_started = 1;
     wdt_enable(WDTO_500MS);
     while (1) {
-        while (dozing) { 
+        while (BLE51_PowerState > 1) {
             select_all_rows();
             suspend_power_down();
             if (suspend_wakeup_condition()) {
@@ -86,20 +84,19 @@ int main(void)
                 kb_idle_timer = timer_read32();
                 wdt_disable();
                 wdt_enable(WDTO_500MS);
-                dozing = 0;
                 suspend_wakeup_init();
-                if (sleeping) {
-                    sleeping = 0;
+                if (BLE51_PowerState >= 4) {
                     turn_on_bt();
                     keyboard_task();
                 }
+                BLE51_PowerState = 1;
             }
-            if (!sleeping) {
+            if (BLE51_PowerState <4) {
                 wdt_reset();
                 ble51_task();
             }
         }
-        if (!sleeping){
+        if (BLE51_PowerState < 4){
             wdt_reset();
             keyboard_task();
             ble51_task();
