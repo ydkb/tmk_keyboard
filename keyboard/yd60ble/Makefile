@@ -143,7 +143,7 @@ endif
 VPATH += $(TARGET_DIR)
 VPATH += $(TMK_DIR)
 
-include ble51.mk
+include $(TMK_DIR)/protocol/ble51.mk
 include $(TMK_DIR)/protocol.mk
 include $(TMK_DIR)/protocol/lufa.mk
 include $(TMK_DIR)/common.mk
