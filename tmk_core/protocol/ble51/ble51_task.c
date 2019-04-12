@@ -44,6 +44,18 @@ void ble51_task(void)
                 turn_off_bt();
             }
         }
+        if (ble_set_code > 0) {
+            if (ble_set_code == KC_I || ble_set_code == KC_O) {
+                ble51_puts("AT+GAPSETADVDATA=02-01-0");
+                if (ble_set_code == KC_O) ble51_puts("4\n");
+                else ble51_puts("6\n");
+                ble_set_code = 0;
+            } else if (ble_set_code == KC_R) {
+                ble51_puts("AT+GAPDELBONDS\n");
+                ble_set_code = KC_I;
+            }
+            ble51_gets(TIMEOUT);
+        }
     }
 
     /* Bluetooth mode | USB mode */
@@ -83,6 +95,11 @@ bool command_extra(uint8_t code)
             break;
         case KC_U:
             force_usb ^= 1;
+            return true;
+        case KC_I:
+        case KC_O:
+        case KC_R:
+            ble_set_code = code;
             return true;
         default:
             return false;   
