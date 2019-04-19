@@ -21,6 +21,7 @@ uint32_t kb_idle_timer = 0;
 static bool usb_nkro_status = false;
 static bool usb_connected = false;
 
+uint8_t ble_set_code = 0;
 
 uint8_t BLE51_PowerState = 1;  
 
@@ -100,6 +101,9 @@ bool command_extra(uint8_t code)
         case KC_O:
         case KC_R:
             ble_set_code = code;
+            return true;
+        case KC_P:
+            BLE51_PowerState ^= 1;
             return true;
         default:
             return false;   

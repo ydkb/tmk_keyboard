@@ -92,6 +92,9 @@ void keyboard_init(void)
     bootmagic();
 #endif
 
+#ifdef LEDMAPU_ENABLE
+    ledmapu_init();
+#endif
 #ifdef SOFTPWM_LED_ENABLE
     softpwm_init();
 #endif

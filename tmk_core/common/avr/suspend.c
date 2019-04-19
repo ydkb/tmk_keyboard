@@ -93,7 +93,7 @@ static void power_down(uint8_t wdto)
 
 void suspend_power_down(void)
 {
-    power_down(WDTO_15MS);
+    power_down(WDTO_30MS);
 }
 
 __attribute__ ((weak)) void matrix_power_up(void) {}
@@ -119,9 +119,13 @@ void suspend_wakeup_init(void)
 #ifdef SUSPEND_ACTION
     suspend_wakeup_init_action();
 #endif
+
+#ifndef SUSPEND_ACTION
 #ifdef BACKLIGHT_ENABLE
     backlight_init();
 #endif
+#endif
+
 }
 
 #ifndef NO_SUSPEND_POWER_DOWN
@@ -130,8 +134,11 @@ ISR(WDT_vect)
 {
     // compensate timer for sleep
     switch (wdt_timeout) {
-        case WDTO_15MS:
-            timer_count += 15 + 2;  // WDTO_15MS + 2(from observation)
+        //case WDTO_15MS:
+        //    timer_count += 15 + 2;  // WDTO_15MS + 2(from observation)
+        //    break;
+        case WDTO_30MS:
+            timer_count += 30 + 2;
             break;
         default:
             ;

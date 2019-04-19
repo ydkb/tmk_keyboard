@@ -16,6 +16,7 @@ extern const uint8_t unimap_trans[MATRIX_ROWS][MATRIX_COLS];
 
 
 // translates raw matrix to universal map
+__attribute__ ((weak))
 keypos_t unimap_translate(keypos_t key)
 {
     uint8_t unimap_pos = 

@@ -53,6 +53,59 @@ typedef uint32_t led_pack_t;
 #define USB_LED_COMPOSE                 3
 #define USB_LED_KANA                    4
 
+/* LEDMAPU */
+#define LEDMAP_L1 1
+#define LEDMAP_L2 2
+#define LEDMAP_L3 3
+#define LEDMAP_L4 4
+#define LEDMAP_L5 5
+#define LEDMAP_L6 6
+#define LEDMAP_L7 7
+#define LEDMAP_DL1 9
+#define LEDMAP_DL2 10
+#define LEDMAP_DL3 11
+#define LEDMAP_DL4 12
+#define LEDMAP_DL5 13
+#define LEDMAP_DL6 14
+#define LEDMAP_DL7 15
+#define LEDMAP_NUMLOCK 16
+#define LEDMAP_CAPSLOCK 17
+#define LEDMAP_SCROLL 18
+#define LEDMAP_NLCK 16
+#define LEDMAP_CAPS 17
+#define LEDMAP_SLCK 18
+
+#ifndef LEDMAP_0
+#define LEDMAP_0 0
+#endif
+
+#ifndef LEDMAP_1
+#define LEDMAP_1 0
+#endif
+
+#ifndef LEDMAP_2
+#define LEDMAP_2 0
+#endif
+
+#ifndef LEDMAP_3
+#define LEDMAP_3 0
+#endif
+
+#ifndef LEDMAP_4
+#define LEDMAP_4 0
+#endif
+
+#ifndef LEDMAP_5
+#define LEDMAP_5 0
+#endif
+
+#ifndef LEDMAP_6
+#define LEDMAP_6 0
+#endif
+
+#ifndef LEDMAP_7
+#define LEDMAP_7 0
+#endif
 
 #ifdef __cplusplus
 extern "C" {
