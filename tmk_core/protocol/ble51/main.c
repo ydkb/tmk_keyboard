@@ -16,7 +16,6 @@
 #include "suspend.h"
 
 extern bool force_usb;
-extern uint32_t kb_idle_timer; 
 bool kb_started = 0;
 
 static int8_t sendchar_func(uint8_t c)
@@ -26,11 +25,16 @@ static int8_t sendchar_func(uint8_t c)
     return 0;
 }
 
+static watchdog_on(void) {
+    wdt_disable();
+    wdt_enable(WDTO_500MS);
+}
+
 static void SetupHardware(void)
 {
     /* Disable watchdog if enabled by bootloader/fuses */
-    MCUSR &= ~(1 << WDRF);
-    wdt_disable();
+    //MCUSR &= ~(1 << WDRF);
+    //wdt_disable();
 
     /* Disable clock division */
     clock_prescale_set(clock_div_1);
@@ -40,9 +44,11 @@ static void SetupHardware(void)
 
     USB_Init();
 
+#ifdef CONSOLE_ENABLE
     // for Console_Task
     USB_Device_EnableSOFEvents();
     print_set_sendchar(sendchar_func);
+#endif
 }
 
 int main(void)  __attribute__ ((weak));
@@ -74,31 +80,24 @@ int main(void)
 
     print("Keyboard start\n");
     kb_started = 1;
-    wdt_enable(WDTO_500MS);
+    watchdog_on();
     while (1) {
-        while (BLE51_PowerState > 1) {
+        if (BLE51_PowerState > 1) { 
             select_all_rows();
             suspend_power_down();
             if (suspend_wakeup_condition()) {
                 unselect_rows();
-                kb_idle_timer = timer_read32();
-                wdt_disable();
-                wdt_enable(WDTO_500MS);
+                watchdog_on();
                 suspend_wakeup_init();
                 if (BLE51_PowerState >= 4) {
                     turn_on_bt();
-                    keyboard_task();
                 }
                 BLE51_PowerState = 1;
-            }
-            if (BLE51_PowerState <4) {
-                wdt_reset();
-                ble51_task();
             }
         }
         if (BLE51_PowerState < 4){
             wdt_reset();
-            keyboard_task();
+            if (BLE51_PowerState <= 1) keyboard_task();
             ble51_task();
         }
     }
