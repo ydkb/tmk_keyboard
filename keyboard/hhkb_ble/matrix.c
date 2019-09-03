@@ -167,8 +167,9 @@ bool suspend_wakeup_condition(void)
         else sleep_timer = 0;
     }
 
-    if (!KEY_POWER_STATE()) KEY_POWER_ON();
-    if (is_ver_jp) matrix_scan();
+    //if (!KEY_POWER_STATE()) KEY_POWER_ON();
+    KEY_POWER_ON();
+    matrix_scan();
     if (matrix_scan() == 100) {
             if (BLE51_PowerState >=4) {
                 PORTF |= (1<<PF4 |1<<PF1 | 1<<PF0);
