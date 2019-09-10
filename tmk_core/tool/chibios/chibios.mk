@@ -179,7 +179,7 @@ INCDIR = $(CHIBIOS)/os/license \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
          $(STREAMSINC) $(CHIBIOS)/os/various \
          $(TMK_DIR) $(COMMON_DIR) $(TMK_DIR)/protocol/chibios \
-         $(TMK_DIR)/protocol $(TARGET_DIR)
+         $(TMK_DIR)/protocol $(TARGET_DIR) $(TMK_DIR)/common/chibios
 
 #
 # Project, sources and paths
