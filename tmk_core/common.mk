@@ -99,8 +99,9 @@ endif
 
 ifeq (yes,$(strip $(KEYMAP_SECTION_ENABLE)))
     OPT_DEFS += -DKEYMAP_SECTION_ENABLE
-
-    ifeq ($(strip $(MCU)),atmega32u2)
+    ifdef MCU_LDSCRIPT
+        EXTRALDFLAGS = -Wl,-L$(TARGET_DIR)/ld,-T$(MCU_LDSCRIPT).x
+    else ifeq ($(strip $(MCU)),atmega32u2)
 	EXTRALDFLAGS = -Wl,-L$(TMK_DIR),-Tldscript_keymap_avr35.x
     else ifeq ($(strip $(MCU)),atmega32u4)
       ifeq ($(strip $(BL_SIZE)),1K) 

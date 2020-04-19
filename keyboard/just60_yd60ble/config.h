@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x1060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    YANG
-#define PRODUCT         YD60BLE Keyboard
+#define PRODUCT         Just60/YD60BLE Keyboard
 #define DESCRIPTION     t.m.k. keyboard firmware for YD60BLE
 
 /* key matrix size */
@@ -34,8 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MATRIX_HAS_GHOST
 
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCE    5
-#define LEDMAPU_ENABLE
+#define DEBOUNCE    8
 /* number of backlight levels */
 
 #define BACKLIGHT_LEVELS 8
@@ -48,7 +47,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BREATHING_LED_TIMER1
 
 
-#define TAPPING_TERM 180
 #define TAPPING_TOGGLE  2
 
 

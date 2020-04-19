@@ -39,7 +39,7 @@
 #----------------------------------------------------------------------------
 
 # Target file name (without extension).
-TARGET ?= yd60ble
+TARGET ?= just60_yd60ble
 
 TMK_DIR ?= ../../tmk_core
 
@@ -56,7 +56,6 @@ CONFIG_H ?= config.h
 
 # MCU name
 MCU ?= atmega32u4
-BL_SIZE ?= 1K
 
 # Processor frequency.
 #     This will define a symbol, F_CPU, in all source code files equal to the
@@ -104,7 +103,13 @@ OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 #   Atmel DFU loader 4096
 #   LUFA bootloader  4096
 #   USBaspLoader     2048
-OPT_DEFS += -DBOOTLOADER_SIZE=1024
+ifdef BL_BOOTHID
+    MCU_LDSCRIPT = 32u4_boothid
+    OPT_DEFS += -DBOOTLOADER_SIZE=1024
+else
+    MCU_LDSCRIPT = 32u4_msd
+    OPT_DEFS += -DBOOTLOADER_SIZE=4096
+endif
 
 BOOTMAGIC_ENABLE ?= yes	# Virtual DIP switch configuration(+1000)
 MOUSEKEY_ENABLE ?= yes	# Mouse keys(+4700)
