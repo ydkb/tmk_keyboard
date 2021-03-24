@@ -387,17 +387,33 @@ end:
 
 
 # Display size of file.
+# The options are:
+#  -A|-B|-C  --format={sysv|berkeley|avr}  Select output style (default is berkeley)
+#            --mcu=<avrmcu>            MCU name for AVR format only
+#            --mlist-devices           List all supported MCUs
+#  -o|-d|-x  --radix={8|10|16}         Display numbers in octal, decimal or hex
+#  -t        --totals                  Display the total sizes (Berkeley only)
+#            --common                  Display total size for *COM* syms
+#            --target=<bfdname>        Set the binary file format
+#            @<file>                   Read options from <file>
+#  -h        --help                    Display this information
+#  -v        --version                 Display the program's version
+
 HEXSIZE = $(SIZE) --target=$(FORMAT) $(TARGET).hex
 #ELFSIZE = $(SIZE) --mcu=$(MCU) --format=avr $(TARGET).elf
 ELFSIZE = $(SIZE) $(TARGET).elf
+#ELFSIZE2 = $(SIZE) --mcu=$(MCU) -A -x  $(TARGET).elf
+ELFSIZE3 = $(SIZE) --mcu=$(MCU) -C -x  $(TARGET).elf
+#ELFSIZE3 = readelf -t  $(TARGET).elf
+
 
 sizebefore:
-	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_BEFORE); $(ELFSIZE); \
-	2>/dev/null; echo; fi
+	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_BEFORE); $(ELFSIZE3); \
+	$(ELFSIZE); 2>/dev/null; echo; fi
 
 sizeafter:
-	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_AFTER); $(ELFSIZE); \
-	2>/dev/null; echo; fi
+	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_AFTER); $(ELFSIZE3); \
+	$(ELFSIZE); 2>/dev/null; echo; fi
 
 
 

@@ -1,0 +1,3 @@
+TARGET = d60ble
+CONFIG_H = config_d60ble.h
+include Makefile
