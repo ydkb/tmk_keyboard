@@ -42,6 +42,8 @@ static void SetupHardware(void)
     // Leonardo needs. Without this USB device is not recognized.
     USB_Disable();
 
+    hook_early_init();
+
     USB_Init();
 
 #ifdef CONSOLE_ENABLE
@@ -89,9 +91,7 @@ int main(void)
                 unselect_rows();
                 watchdog_on();
                 suspend_wakeup_init();
-                if (BLE51_PowerState >= 4) {
-                    turn_on_bt();
-                }
+                turn_on_bt();
                 BLE51_PowerState = 1;
             }
         }
