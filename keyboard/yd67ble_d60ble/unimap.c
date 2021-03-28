@@ -129,9 +129,6 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                     uint16_t *const bootKeyPtr = (uint16_t *)0x0800;
                     *bootKeyPtr = 0xFC2B;
                     for (;;);
-                } else if (pressed_mods == (MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))) {
-                    eeprom_update_word(1022, 0xBBAA);
-                    for (;;);
                 }
                 register_mods(0b00110011);
                 unregister_mods(0b00110011);
