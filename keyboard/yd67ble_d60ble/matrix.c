@@ -72,16 +72,6 @@ void hook_early_init()
 {
     DDRD  &= ~(1<<1);
     PORTD |=  (1<<1);
-    if (eeprom_read_word(1022) == 0xBBAA) {
-        eeprom_update_word(1022, 0xDDCC);
-        DDRD  |=  (1<<1);
-        PORTD &= ~(1<<1);
-        bt_power_init();
-        DDRC  |= (1<<6);
-        PORTC |= (1<<6);
-        _delay_ms(5000);
-        bootloader_jump(); 
-    }
 }
 
 void matrix_init(void)
